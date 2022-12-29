@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const orderRoutes = require("./routes/orderRoutes");
 const fileUploader = require("express-fileupload");
+const paymentRoutes = require("./routes/paymentRoutes");
 const swaggerUI = require("swagger-ui-express");
 const app = express();
 const path = require("path");
@@ -23,6 +24,7 @@ app.get("/", (req, resp) => {
 app.use("/", productRoutes);
 app.use("/", userRoute);
 app.use("/", orderRoutes);
+app.use("/", paymentRoutes);
 app.use(errorMiddleware);
 
 module.exports = app;

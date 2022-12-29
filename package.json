@@ -24,6 +24,7 @@
     "node.js": "^0.0.1-security",
     "nodemailer": "^6.7.8",
     "react": "^18.2.0",
+    "stripe": "^11.5.0",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.6.0",
     "validator": "^13.7.0",

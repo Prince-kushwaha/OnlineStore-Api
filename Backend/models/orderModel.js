@@ -1,7 +1,6 @@
 const { Schema, mongoose, model } = require("mongoose");
 
 const orderSchema = new Schema({
-  
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -12,7 +11,7 @@ const orderSchema = new Schema({
     {
       name: {
         type: String,
-        required: true,
+        required: false,
       },
 
       quantity: {
@@ -73,7 +72,7 @@ const orderSchema = new Schema({
       required: true,
     },
 
-    phoneNumber: {
+    phone: {
       type: Number,
       required: true,
     },

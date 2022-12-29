@@ -7,10 +7,14 @@ exports.createOrder = catchAsyncError(async function (req, resp, next) {
   const user = req.user._id;
   let orderInfo = req.body;
   orderInfo.user = user;
+  orderInfo.shippingInfo.name = req.user.name;
+  orderInfo.deliveryAt = Date.now() + 10000000;
+  for (let i = 0; i < orderInfo.orderItems.length; i++)
+    orderInfo.orderItems[i].product = orderInfo.orderItems[i]._id;
   let isproductInStack = true;
 
   orderInfo.orderItems.forEach(async function checkStack(item) {
-    const product = await Product.findById(item.product);
+    let product = await Product.findById(item._id);
     if (product.stock < item.quantity) {
       isproductInStack = false;
     }
@@ -67,7 +71,7 @@ exports.updateOrderStatus = catchAsyncError(async function (req, resp, next) {
 });
 
 exports.getSingleOrder = catchAsyncError(async function (req, resp, next) {
-  const orderid = req.query.order;
+  const orderid = req.params.id;
   const order = await Order.findById(orderid);
 
   if (!order) {

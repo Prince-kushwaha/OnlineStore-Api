@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: E-commerce Website Api
-  description: This is e-commerce website api documentation
+  title: Online Store  Api
+  description: Its a  Directory of API. Users can create their profile and browse list of  available Products . It provides advance search options and users can query products on the basis of Product rating, category, price and keyword. User can also Order  product or save to Cart
   version: 1.0
   liscence:
     name: Apache 2.0
@@ -33,12 +33,14 @@ info:
 
 tags:
     - name : Product
-      description: Crud on product
+      description: CRUD Operation On Product
     - name : Authenication
-      description: Crud operation on Authenication
+      description: CRUD Operation on Authenication
     - name : User
-      description: Crud operation on User
-    - name: Order   
+      description: CRUD Operation On User
+    - name: Order
+      description: CRUD Operation On Order
+
 
 paths:
   /products/:
